@@ -26,7 +26,7 @@ SerialComNode::SerialComNode(void)
 
     if (is_debug_) {
     fp_ = fopen("debug_com.txt", "w+");
-    }
+    }\
 }
 
 bool SerialComNode::SerialInitialization(std::string port,
@@ -148,20 +148,20 @@ void SerialComNode::ReceiveLoop() {
           }
             break;
           case STEP_LENGTH_LOW: {
-            data_length_ = byte_;ignored
-            protocol_packet_[index_++] = byte_;ignored
-            unpack_step_e_ = STEP_LENGTH_HIGH;ignored
-          }ignored
-            break;ignored
-          case STEP_LENGTH_HIGH: {ignored
-            data_length_ |= (byte_ << 8);ignored
-            protocol_packet_[index_++] = byte_;ignored
-            if (data_length_ < (PROTOCAL_FRAME_MAX_SIZE - HEignoredADER_LEN - CMD_LEN - CRC_LEN)) {
+            data_length_ = byte_;
+            protocol_packet_[index_++] = byte_;
+            unpack_step_e_ = STEP_LENGTH_HIGH;
+          }
+            break;
+          case STEP_LENGTH_HIGH: {
+            data_length_ |= (byte_ << 8);
+            protocol_packet_[index_++] = byte_;
+            if (data_length_ < (PROTOCAL_FRAME_MAX_SIZE - HEADER_LEN - CMD_LEN - CRC_LEN)) {
               unpack_step_e_ = STEP_FRAME_SEQ;
             } else {
               std::cout << "Data length too big";
               unpack_step_e_ = STEP_HEADER_SOF;
-              index_ = 0;ignored
+              index_ = 0;
             }
           }
             break;
