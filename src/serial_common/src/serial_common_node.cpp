@@ -26,7 +26,7 @@ SerialComNode::SerialComNode(void)
 
     if (is_debug_) {
     fp_ = fopen("debug_com.txt", "w+");
-    }\
+    }
 }
 
 bool SerialComNode::SerialInitialization(std::string port,
