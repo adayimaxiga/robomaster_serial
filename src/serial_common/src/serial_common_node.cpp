@@ -17,7 +17,7 @@ SerialComNode::SerialComNode(void)
     stop_receive_ = false;
     stop_send_ = false;
     is_sim_ = false;
-    is_debug_= false;
+    is_debug_= true;
     pack_length_ = 0;
     total_length_ = 0;
     free_length_ = UART_BUFF_SIZE;
@@ -269,7 +269,7 @@ void SerialComNode::DataHandle() {
       memcpy(&Gimbal_mode_msg_, data_addr, data_length);
       mode_msg_.mode = Gimbal_mode_msg_.mode;
       mode_pub_.publish(mode_msg_);
-      std::cout<<"receive a message:"<<mode_msg_.mode;
+      std::cout<<"receive a message:"<<mode_msg_.mode<<std::endl;
       break;
     default:
       break;
@@ -311,8 +311,15 @@ void SerialComNode::GimbalEnemyControlCallback(const serial_common::EnemyPos::Co
   }
 }
 void SerialComNode::GimbalBuffControlCallback(const serial_common::EnemyPos::ConstPtr &msg) {
+//  std::cout<<"zhaihongjia";
   if (msg->enemy_dist == 0)
+  {
+    std::cout<<"licai:"<<msg->enemy_dist<<std::endl;
+    std::cout<<"licai:"<<msg->enemy_yaw<<std::endl;
+    std::cout<<"licai:"<<msg->enemy_pitch<<std::endl;
+    std::cout<<"licai:"<<msg->mode<<std::endl;
     return;
+  }
   static int count = 0, time_ms = 0, compress = 0;
   static double frequency = 0;
   static struct timeval time_last, time_current;

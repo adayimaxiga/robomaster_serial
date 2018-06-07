@@ -33,3 +33,5 @@
 
 /src/usb*
 /src/open*
+/build
+/devel
