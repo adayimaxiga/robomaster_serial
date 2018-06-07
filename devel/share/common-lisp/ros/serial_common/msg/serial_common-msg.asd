@@ -6,4 +6,6 @@
   :components ((:file "_package")
     (:file "EnemyPos" :depends-on ("_package_EnemyPos"))
     (:file "_package_EnemyPos" :depends-on ("_package"))
+    (:file "Infantrymode" :depends-on ("_package_Infantrymode"))
+    (:file "_package_Infantrymode" :depends-on ("_package"))
   ))

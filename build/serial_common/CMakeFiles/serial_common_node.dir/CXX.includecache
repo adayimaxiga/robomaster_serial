@@ -22,6 +22,22 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
+/home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/xjturm/serial_ws/src/serial_common/include/serial_common_node.h
 ctime
 -
@@ -57,6 +73,8 @@ nav_msgs/Odometry.h
 -
 serial_common/EnemyPos.h
 /home/xjturm/serial_ws/src/serial_common/include/serial_common/EnemyPos.h
+serial_common/Infantrymode.h
+/home/xjturm/serial_ws/src/serial_common/include/serial_common/Infantrymode.h
 stdio.h
 -
 stdint.h

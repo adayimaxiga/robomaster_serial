@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+messages_str = "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg;/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
 services_str = ""
 pkg_name = "serial_common"
 dependencies_str = "std_msgs"

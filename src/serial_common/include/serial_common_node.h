@@ -18,6 +18,7 @@
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
 #include "serial_common/EnemyPos.h"
+#include "serial_common/Infantrymode.h"
 
 
 #include <stdio.h>
@@ -62,6 +63,12 @@ typedef enum {
   CLIENT_SHOW_ID = 0x0100,
   USER_TO_SERVER_ID = 0x0101,
   SERVER_TO_USER_ID = 0x0102,
+
+
+  INFANTRY_BUFF_ID = 0x1000,
+  INFANTRY_ENEMY_ID = 0x1001,
+
+  INFANTRY_SHOOT_MODE_ID = 0x10A1,
 } CommandID;
 
 /* enumeration type data */
@@ -75,16 +82,7 @@ typedef enum {
   STEP_DATA_CRC16 = 5,
 } UnpackStep;
 
-typedef enum {
-  GIMBAL_RELAX = 0,
-  GIMBAL_INIT = 1,
-  GIMBAL_NO_ARTI_INPUT = 2,
-  GIMBAL_FOLLOW_ZGYRO = 3,
-  GIMBAL_TRACK_ARMOR = 4,
-  GIMBAL_PATROL_MODE = 5,
-  GIMBAL_SHOOT_BUFF = 6,
-  GIMBAL_POSITION_MODE = 7,
-} GimbalMode;
+
 
 typedef enum {
   CHASSIS_STOP = 1,
@@ -125,12 +123,15 @@ typedef struct {
   * @brief  gimbal control information(0x00A1)
   */
 typedef struct {
-  uint8_t ctrl_mode;    /* gimbal control mode */
-  float pit_ref;      /* gimbal pitch reference angle(degree) */
-  float yaw_ref;      /* gimbal yaw reference angle(degree) */
-  uint8_t visual_valid; /* visual information valid or not */
-} __attribute__((packed)) GimbalControl;
+  int32_t enemy_dist;
+  int32_t enemy_yaw;      /* gimbal pitch reference angle(degree) */
+  int32_t enemy_pitch;      /* gimbal yaw reference angle(degree) */
+  int32_t mode; /* visual information valid or not */
+} __attribute__((packed)) GimbalShootControl;
 
+typedef struct {
+  int32_t mode; /* visual information valid or not */
+} __attribute__((packed)) GimbalMode;
 
 
 
@@ -293,7 +294,9 @@ private:
      */
     int SendData(int data_len);
 
-    void GimbalControlCallback(const serial_common::EnemyPosConstPtr &msg);
+    void GimbalEnemyControlCallback(const serial_common::EnemyPos::ConstPtr &msg);
+    void GimbalBuffControlCallback(const serial_common::EnemyPos::ConstPtr &msg);
+
 
     void ChassisControlCallback(const geometry_msgs::Twist::ConstPtr &vel);
 
@@ -309,8 +312,8 @@ private:
     bool is_open_, stop_receive_, stop_send_, is_sim_, is_debug_, is_debug_tx_;
     ros::NodeHandle nh_;
 
-    ros::Subscriber sub_cmd_vel_, sub_cmd_gim_;
-    ros::Publisher odom_pub_, gim_pub_;
+    ros::Subscriber enemy_sub, buff_sub;
+    ros::Publisher mode_pub_;
 
     UnpackStep unpack_step_e_;
 
@@ -318,9 +321,10 @@ private:
       protocol_packet_[PROTOCAL_FRAME_MAX_SIZE];
       uint16_t data_length_, computer_cmd_id_;
   int32_t read_len_, read_buff_index_, index_;
-  GimbalControl gimbal_control_data_;
+  GimbalShootControl gimbal_control_data_;
   ChassisControl chassis_control_data_;
   FrameHeader computer_frame_header_;
+  GimbalMode Gimbal_mode_msg_;
 };
 
 

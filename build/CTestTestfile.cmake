@@ -5,4 +5,6 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
+subdirs(opencvtest3)
 subdirs(serial_common)
+subdirs(usb_cam)

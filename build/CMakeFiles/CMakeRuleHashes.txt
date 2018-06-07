@@ -1,13 +1,21 @@
 # Hashes of file build rules.
 63ae313f7516b8fab954875072ad30c2 /home/xjturm/serial_ws/devel/include/serial_common/EnemyPos.h
+d976c2c4244b0d45955c6f18e703c807 /home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h
 dad30bd863caf7658780b94f4bbd9ab6 /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_EnemyPos.py
+5a9cdce9b7a42f2845906525fd57dcc7 /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_Infantrymode.py
 ca2048536413935c3acacd866724c7d6 /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/__init__.py
 8178847a4472c148af6e5f5419fbecec /home/xjturm/serial_ws/devel/share/common-lisp/ros/serial_common/msg/EnemyPos.lisp
+a139fca1ebf77492a3128e4831ad4af5 /home/xjturm/serial_ws/devel/share/common-lisp/ros/serial_common/msg/Infantrymode.lisp
 0161498b911f05c8073a63b8fd83a6e9 /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/EnemyPos.js
+303637cf5ec87ba0657fdd7837322a35 /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/Infantrymode.js
+efe40316812ff65b77967d591347d1cb /home/xjturm/serial_ws/devel/share/roseus/ros/opencvtest3/manifest.l
 c27bf7209dfb07860a6297bea65f7da9 /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/manifest.l
 dbfacac801d4c26a41b9369ba50ba39c /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/EnemyPos.l
+9d0a0f7d413c7ac120d475d5d8623597 /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/Infantrymode.l
 86fb6ea69e2c0d0aa832fe05b8ca794f CMakeFiles/clean_test_results
+3e9901a99904f8532cae9a764ecde4b4 opencvtest3/CMakeFiles/opencvtest3_generate_messages_eus
 d5fcbcbcc8aeca8dd44bfe92e666adf8 serial_common/CMakeFiles/_serial_common_generate_messages_check_deps_EnemyPos
+0c15c183fdcb28c6d3001369eed5a73d serial_common/CMakeFiles/_serial_common_generate_messages_check_deps_Infantrymode
 d4f4293adffb1256498addb9587ea976 serial_common/CMakeFiles/serial_common_generate_messages_cpp
 d4f4293adffb1256498addb9587ea976 serial_common/CMakeFiles/serial_common_generate_messages_eus
 d4f4293adffb1256498addb9587ea976 serial_common/CMakeFiles/serial_common_generate_messages_lisp

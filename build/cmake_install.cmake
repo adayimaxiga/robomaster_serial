@@ -117,7 +117,9 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/xjturm/serial_ws/build/gtest/cmake_install.cmake")
+  include("/home/xjturm/serial_ws/build/opencvtest3/cmake_install.cmake")
   include("/home/xjturm/serial_ws/build/serial_common/cmake_install.cmake")
+  include("/home/xjturm/serial_ws/build/usb_cam/cmake_install.cmake")
 
 endif()
 

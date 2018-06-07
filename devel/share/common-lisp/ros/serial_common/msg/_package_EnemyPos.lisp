@@ -5,4 +5,6 @@
           ENEMY_YAW
           ENEMY_PITCH-VAL
           ENEMY_PITCH
+          MODE-VAL
+          MODE
 ))

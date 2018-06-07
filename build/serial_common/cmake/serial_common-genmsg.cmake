@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "serial_common: 1 messages, 0 services")
+message(STATUS "serial_common: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_serial_common_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "serial_common" "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg" ""
 )
 
+get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" NAME_WE)
+add_custom_target(_serial_common_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "serial_common" "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_serial_common_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(serial_common
   "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/serial_common
+)
+_generate_msg_cpp(serial_common
+  "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/serial_common
@@ -51,6 +62,8 @@ add_dependencies(serial_common_generate_messages serial_common_generate_messages
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg" NAME_WE)
 add_dependencies(serial_common_generate_messages_cpp _serial_common_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" NAME_WE)
+add_dependencies(serial_common_generate_messages_cpp _serial_common_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(serial_common_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS serial_common_generate_messages_cpp
 ### Generating Messages
 _generate_msg_eus(serial_common
   "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/serial_common
+)
+_generate_msg_eus(serial_common
+  "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/serial_common
@@ -84,6 +103,8 @@ add_dependencies(serial_common_generate_messages serial_common_generate_messages
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg" NAME_WE)
 add_dependencies(serial_common_generate_messages_eus _serial_common_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" NAME_WE)
+add_dependencies(serial_common_generate_messages_eus _serial_common_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(serial_common_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS serial_common_generate_messages_eus
 ### Generating Messages
 _generate_msg_lisp(serial_common
   "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/serial_common
+)
+_generate_msg_lisp(serial_common
+  "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/serial_common
@@ -117,6 +144,8 @@ add_dependencies(serial_common_generate_messages serial_common_generate_messages
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg" NAME_WE)
 add_dependencies(serial_common_generate_messages_lisp _serial_common_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" NAME_WE)
+add_dependencies(serial_common_generate_messages_lisp _serial_common_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(serial_common_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS serial_common_generate_messages_lis
 ### Generating Messages
 _generate_msg_nodejs(serial_common
   "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/serial_common
+)
+_generate_msg_nodejs(serial_common
+  "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/serial_common
@@ -150,6 +185,8 @@ add_dependencies(serial_common_generate_messages serial_common_generate_messages
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg" NAME_WE)
 add_dependencies(serial_common_generate_messages_nodejs _serial_common_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" NAME_WE)
+add_dependencies(serial_common_generate_messages_nodejs _serial_common_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(serial_common_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS serial_common_generate_messages_nod
 ### Generating Messages
 _generate_msg_py(serial_common
   "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/serial_common
+)
+_generate_msg_py(serial_common
+  "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/serial_common
@@ -182,6 +225,8 @@ add_dependencies(serial_common_generate_messages serial_common_generate_messages
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg" NAME_WE)
+add_dependencies(serial_common_generate_messages_py _serial_common_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg" NAME_WE)
 add_dependencies(serial_common_generate_messages_py _serial_common_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

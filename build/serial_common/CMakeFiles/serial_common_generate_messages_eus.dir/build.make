@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/xjturm/serial_ws/build
 include serial_common/CMakeFiles/serial_common_generate_messages_eus.dir/progress.make
 
 serial_common/CMakeFiles/serial_common_generate_messages_eus: /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/EnemyPos.l
+serial_common/CMakeFiles/serial_common_generate_messages_eus: /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/Infantrymode.l
 serial_common/CMakeFiles/serial_common_generate_messages_eus: /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/manifest.l
 
 
@@ -62,12 +63,18 @@ serial_common/CMakeFiles/serial_common_generate_messages_eus: /home/xjturm/seria
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from serial_common/EnemyPos.msg"
 	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg
 
+/home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/Infantrymode.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/Infantrymode.l: /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from serial_common/Infantrymode.msg"
+	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg
+
 /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for serial_common"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for serial_common"
 	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common serial_common std_msgs
 
 serial_common_generate_messages_eus: serial_common/CMakeFiles/serial_common_generate_messages_eus
 serial_common_generate_messages_eus: /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/EnemyPos.l
+serial_common_generate_messages_eus: /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/msg/Infantrymode.l
 serial_common_generate_messages_eus: /home/xjturm/serial_ws/devel/share/roseus/ros/serial_common/manifest.l
 serial_common_generate_messages_eus: serial_common/CMakeFiles/serial_common_generate_messages_eus.dir/build.make
 

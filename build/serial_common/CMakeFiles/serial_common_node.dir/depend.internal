@@ -3,6 +3,7 @@
 
 serial_common/CMakeFiles/serial_common_node.dir/src/serial_common_node.cpp.o
  /home/xjturm/serial_ws/devel/include/serial_common/EnemyPos.h
+ /home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h
  /home/xjturm/serial_ws/src/serial_common/include/serial_common_node.h
  /home/xjturm/serial_ws/src/serial_common/src/serial_common_node.cpp
  /opt/ros/kinetic/include/geometry_msgs/Point.h

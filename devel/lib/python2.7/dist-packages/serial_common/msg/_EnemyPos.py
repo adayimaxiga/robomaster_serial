@@ -7,15 +7,16 @@ import struct
 
 
 class EnemyPos(genpy.Message):
-  _md5sum = "d2e463cd0aba84496a9caa0872b932d0"
+  _md5sum = "d278822d8acfbc3aa6895b78b02afb89"
   _type = "serial_common/EnemyPos"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """float64 enemy_dist
-float64 enemy_yaw
-float64 enemy_pitch
+  _full_text = """int32 enemy_dist
+int32 enemy_yaw
+int32 enemy_pitch
+int32 mode 
 """
-  __slots__ = ['enemy_dist','enemy_yaw','enemy_pitch']
-  _slot_types = ['float64','float64','float64']
+  __slots__ = ['enemy_dist','enemy_yaw','enemy_pitch','mode']
+  _slot_types = ['int32','int32','int32','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +26,7 @@ float64 enemy_pitch
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       enemy_dist,enemy_yaw,enemy_pitch
+       enemy_dist,enemy_yaw,enemy_pitch,mode
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -35,15 +36,18 @@ float64 enemy_pitch
       super(EnemyPos, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
       if self.enemy_dist is None:
-        self.enemy_dist = 0.
+        self.enemy_dist = 0
       if self.enemy_yaw is None:
-        self.enemy_yaw = 0.
+        self.enemy_yaw = 0
       if self.enemy_pitch is None:
-        self.enemy_pitch = 0.
+        self.enemy_pitch = 0
+      if self.mode is None:
+        self.mode = 0
     else:
-      self.enemy_dist = 0.
-      self.enemy_yaw = 0.
-      self.enemy_pitch = 0.
+      self.enemy_dist = 0
+      self.enemy_yaw = 0
+      self.enemy_pitch = 0
+      self.mode = 0
 
   def _get_types(self):
     """
@@ -58,7 +62,7 @@ float64 enemy_pitch
     """
     try:
       _x = self
-      buff.write(_get_struct_3d().pack(_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch))
+      buff.write(_get_struct_4i().pack(_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch, _x.mode))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -71,8 +75,8 @@ float64 enemy_pitch
       end = 0
       _x = self
       start = end
-      end += 24
-      (_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch,) = _get_struct_3d().unpack(str[start:end])
+      end += 16
+      (_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch, _x.mode,) = _get_struct_4i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -86,7 +90,7 @@ float64 enemy_pitch
     """
     try:
       _x = self
-      buff.write(_get_struct_3d().pack(_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch))
+      buff.write(_get_struct_4i().pack(_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch, _x.mode))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -100,8 +104,8 @@ float64 enemy_pitch
       end = 0
       _x = self
       start = end
-      end += 24
-      (_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch,) = _get_struct_3d().unpack(str[start:end])
+      end += 16
+      (_x.enemy_dist, _x.enemy_yaw, _x.enemy_pitch, _x.mode,) = _get_struct_4i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -110,9 +114,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3d = None
-def _get_struct_3d():
-    global _struct_3d
-    if _struct_3d is None:
-        _struct_3d = struct.Struct("<3d")
-    return _struct_3d
+_struct_4i = None
+def _get_struct_4i():
+    global _struct_4i
+    if _struct_4i is None:
+        _struct_4i = struct.Struct("<4i")
+    return _struct_4i

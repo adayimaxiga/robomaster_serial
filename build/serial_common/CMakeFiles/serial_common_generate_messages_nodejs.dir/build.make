@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/xjturm/serial_ws/build
 include serial_common/CMakeFiles/serial_common_generate_messages_nodejs.dir/progress.make
 
 serial_common/CMakeFiles/serial_common_generate_messages_nodejs: /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/EnemyPos.js
+serial_common/CMakeFiles/serial_common_generate_messages_nodejs: /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/Infantrymode.js
 
 
 /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/EnemyPos.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ serial_common/CMakeFiles/serial_common_generate_messages_nodejs: /home/xjturm/se
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from serial_common/EnemyPos.msg"
 	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg
 
+/home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/Infantrymode.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/Infantrymode.js: /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from serial_common/Infantrymode.msg"
+	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg
+
 serial_common_generate_messages_nodejs: serial_common/CMakeFiles/serial_common_generate_messages_nodejs
 serial_common_generate_messages_nodejs: /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/EnemyPos.js
+serial_common_generate_messages_nodejs: /home/xjturm/serial_ws/devel/share/gennodejs/ros/serial_common/msg/Infantrymode.js
 serial_common_generate_messages_nodejs: serial_common/CMakeFiles/serial_common_generate_messages_nodejs.dir/build.make
 
 .PHONY : serial_common_generate_messages_nodejs

@@ -3,5 +3,7 @@
   (:export
    "<ENEMYPOS>"
    "ENEMYPOS"
+   "<INFANTRYMODE>"
+   "INFANTRYMODE"
   ))
 

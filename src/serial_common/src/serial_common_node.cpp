@@ -7,7 +7,7 @@ SerialComNode::SerialComNode(void)
     length_beam_ = 90;
     length_column_ = 50;
     baudrate_=921600;
-    port_ = "/dev/chassis";
+    port_ = "/dev/ttyUSB0";
 
     if(!SerialInitialization(port_, baudrate_, 0, 8, 1, 'N'))
     {
@@ -22,7 +22,7 @@ SerialComNode::SerialComNode(void)
     total_length_ = 0;
     free_length_ = UART_BUFF_SIZE;
 
-    odom_pub_ = nh_.advertise<nav_msgs::Odometry>("odom", 30);
+    mode_pub_ = nh_.advertise<serial_common::Infantrymode>("read", 30);
 
     if (is_debug_) {
     fp_ = fopen("debug_com.txt", "w+");
@@ -122,8 +122,9 @@ bool SerialComNode::ConfigBaudrate(int baudrate) {
 void SerialComNode::Run() {
   receive_loop_thread_ = new std::thread(boost::bind(&SerialComNode::ReceiveLoop, this));
 
-  sub_cmd_gim_ = nh_.subscribe("enemy_pos", 1, &SerialComNode::GimbalControlCallback, this);
-  sub_cmd_vel_ = nh_.subscribe("cmd_vel", 1, &SerialComNode::ChassisControlCallback, this);
+  enemy_sub = nh_.subscribe("enemy", 1, &SerialComNode::GimbalEnemyControlCallback, this);
+  buff_sub = nh_.subscribe("buff", 1, &SerialComNode::GimbalBuffControlCallback, this);
+
   send_loop_thread_ = new std::thread(boost::bind(&SerialComNode::SendPack, this));
   ros::spin();
 }
@@ -253,7 +254,7 @@ int SerialComNode::ReceiveData(int fd, int data_length) {
   }
   return received_length;
 }
-
+serial_common::Infantrymode mode_msg_;
 
 void SerialComNode::DataHandle() {
   ros::Time current_time = ros::Time::now();
@@ -264,19 +265,18 @@ void SerialComNode::DataHandle() {
   uint8_t *data_addr = protocol_packet_ + HEADER_LEN + CMD_LEN;
   switch (cmd_id) {
 
-    case CHASSIS_DATA_ID: {
-      if (is_debug_) {
-        std::cout << "Chassis bottom data is received.";
-      }
-      std::cout << "Chassis bottom data is received.";
-    }
+    case INFANTRY_SHOOT_MODE_ID:
+      memcpy(&Gimbal_mode_msg_, data_addr, data_length);
+      mode_msg_.mode = Gimbal_mode_msg_.mode;
+      mode_pub_.publish(mode_msg_);
+      std::cout<<"receive a message:"<<mode_msg_.mode;
       break;
     default:
       break;
   }
 }
 
-void SerialComNode::GimbalControlCallback(const serial_common::EnemyPosConstPtr &msg) {
+void SerialComNode::GimbalEnemyControlCallback(const serial_common::EnemyPos::ConstPtr &msg) {
   if (msg->enemy_dist == 0)
     return;
   static int count = 0, time_ms = 0, compress = 0;
@@ -292,16 +292,50 @@ void SerialComNode::GimbalControlCallback(const serial_common::EnemyPosConstPtr 
   time_last = time_current;
   std::unique_lock<std::mutex> lock(mutex_pack_);
   uint8_t pack[PACK_MAX_SIZE];
-  GimbalControl gimbal_control_data;
+  GimbalShootControl gimbal_control_data;
   //TODO(krik): choose the mode by command
-  gimbal_control_data.ctrl_mode = GIMBAL_POSITION_MODE;
-  gimbal_control_data.pit_ref = msg->enemy_pitch ;
-  gimbal_control_data.yaw_ref = msg->enemy_yaw ;
-  gimbal_control_data.visual_valid = 1;
+  gimbal_control_data.enemy_dist    =  msg->enemy_dist;
+  gimbal_control_data.enemy_pitch   =  msg->enemy_pitch ;
+  gimbal_control_data.enemy_yaw     =  msg->enemy_yaw ;
+  gimbal_control_data.mode          =  msg->mode;
 
-  std::cout  << "pitch :"<<gimbal_control_data.pit_ref<<" yaw :"<<gimbal_control_data.yaw_ref <<" dist :"<< msg->enemy_dist << std::endl;
-  int length = sizeof(GimbalControl), total_length = length + HEADER_LEN + CMD_LEN + CRC_LEN;
-  SendDataHandle(GIMBAL_CTRL_ID, (uint8_t *) &gimbal_control_data, pack, length);
+  std::cout  << "pitch :"<<gimbal_control_data.enemy_pitch<<" yaw :"<<gimbal_control_data.enemy_yaw <<" dist :"<< gimbal_control_data.enemy_dist << std::endl;
+  int length = sizeof(GimbalShootControl), total_length = length + HEADER_LEN + CMD_LEN + CRC_LEN;
+  SendDataHandle(INFANTRY_ENEMY_ID, (uint8_t *) &gimbal_control_data, pack, length);
+  if (total_length <= free_length_) {
+    memcpy(tx_buf_ + total_length_, pack, total_length);
+    free_length_ -= total_length;
+    total_length_ += total_length;
+  } else {
+    std::cout  << "Overflow in Gimbal CB";
+  }
+}
+void SerialComNode::GimbalBuffControlCallback(const serial_common::EnemyPos::ConstPtr &msg) {
+  if (msg->enemy_dist == 0)
+    return;
+  static int count = 0, time_ms = 0, compress = 0;
+  static double frequency = 0;
+  static struct timeval time_last, time_current;
+  gettimeofday(&time_current, nullptr);
+  if (count == 0) {
+    count++;
+  } else {
+    time_ms = (time_current.tv_sec - time_last.tv_sec) * 1000 + (time_current.tv_usec - time_last.tv_usec) / 1000;
+    frequency = 1000.0 / time_ms;
+  }
+  time_last = time_current;
+  std::unique_lock<std::mutex> lock(mutex_pack_);
+  uint8_t pack[PACK_MAX_SIZE];
+  GimbalShootControl gimbal_control_data;
+  //TODO(krik): choose the mode by command
+  gimbal_control_data.enemy_dist    =  msg->enemy_dist;
+  gimbal_control_data.enemy_pitch   =  msg->enemy_pitch ;
+  gimbal_control_data.enemy_yaw     =  msg->enemy_yaw ;
+  gimbal_control_data.mode          =  msg->mode;
+
+  std::cout  << "pitch :"<<gimbal_control_data.enemy_pitch<<" yaw :"<<gimbal_control_data.enemy_yaw <<" dist :"<< gimbal_control_data.enemy_dist << std::endl;
+  int length = sizeof(GimbalShootControl), total_length = length + HEADER_LEN + CMD_LEN + CRC_LEN;
+  SendDataHandle(INFANTRY_BUFF_ID, (uint8_t *) &gimbal_control_data, pack, length);
   if (total_length <= free_length_) {
     memcpy(tx_buf_ + total_length_, pack, total_length);
     free_length_ -= total_length;

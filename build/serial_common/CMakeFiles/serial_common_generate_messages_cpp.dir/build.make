@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/xjturm/serial_ws/build
 include serial_common/CMakeFiles/serial_common_generate_messages_cpp.dir/progress.make
 
 serial_common/CMakeFiles/serial_common_generate_messages_cpp: /home/xjturm/serial_ws/devel/include/serial_common/EnemyPos.h
+serial_common/CMakeFiles/serial_common_generate_messages_cpp: /home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h
 
 
 /home/xjturm/serial_ws/devel/include/serial_common/EnemyPos.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -62,8 +63,15 @@ serial_common/CMakeFiles/serial_common_generate_messages_cpp: /home/xjturm/seria
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from serial_common/EnemyPos.msg"
 	cd /home/xjturm/serial_ws/src/serial_common && /home/xjturm/serial_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/include/serial_common -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h: /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg
+/home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from serial_common/Infantrymode.msg"
+	cd /home/xjturm/serial_ws/src/serial_common && /home/xjturm/serial_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/include/serial_common -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 serial_common_generate_messages_cpp: serial_common/CMakeFiles/serial_common_generate_messages_cpp
 serial_common_generate_messages_cpp: /home/xjturm/serial_ws/devel/include/serial_common/EnemyPos.h
+serial_common_generate_messages_cpp: /home/xjturm/serial_ws/devel/include/serial_common/Infantrymode.h
 serial_common_generate_messages_cpp: serial_common/CMakeFiles/serial_common_generate_messages_cpp.dir/build.make
 
 .PHONY : serial_common_generate_messages_cpp

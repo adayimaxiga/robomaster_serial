@@ -1,0 +1,8 @@
+prefix=/home/xjturm/serial_ws/devel
+
+Name: opencvtest3
+Description: Description of opencvtest3
+Version: 0.0.0
+Cflags: -I/home/xjturm/serial_ws/src/opencvtest3/include
+Libs: -L/home/xjturm/serial_ws/devel/lib 
+Requires: 

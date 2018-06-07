@@ -33,7 +33,10 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/serial_common/msg" TYPE FILE FILES "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/serial_common/msg" TYPE FILE FILES
+    "/home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg"
+    "/home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

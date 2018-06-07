@@ -1,3 +1,4 @@
-float64 enemy_dist
-float64 enemy_yaw
-float64 enemy_pitch
+int32 enemy_dist
+int32 enemy_yaw
+int32 enemy_pitch
+int32 mode 

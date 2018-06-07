@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/xjturm/serial_ws/build
 include serial_common/CMakeFiles/serial_common_generate_messages_py.dir/progress.make
 
 serial_common/CMakeFiles/serial_common_generate_messages_py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_EnemyPos.py
+serial_common/CMakeFiles/serial_common_generate_messages_py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_Infantrymode.py
 serial_common/CMakeFiles/serial_common_generate_messages_py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/__init__.py
 
 
@@ -62,13 +63,20 @@ serial_common/CMakeFiles/serial_common_generate_messages_py: /home/xjturm/serial
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG serial_common/EnemyPos"
 	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/xjturm/serial_ws/src/serial_common/msg/EnemyPos.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg
 
+/home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_Infantrymode.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_Infantrymode.py: /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG serial_common/Infantrymode"
+	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/xjturm/serial_ws/src/serial_common/msg/Infantrymode.msg -Iserial_common:/home/xjturm/serial_ws/src/serial_common/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p serial_common -o /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg
+
 /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/__init__.py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_EnemyPos.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for serial_common"
+/home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/__init__.py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_Infantrymode.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjturm/serial_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for serial_common"
 	cd /home/xjturm/serial_ws/build/serial_common && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg --initpy
 
 serial_common_generate_messages_py: serial_common/CMakeFiles/serial_common_generate_messages_py
 serial_common_generate_messages_py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_EnemyPos.py
+serial_common_generate_messages_py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/_Infantrymode.py
 serial_common_generate_messages_py: /home/xjturm/serial_ws/devel/lib/python2.7/dist-packages/serial_common/msg/__init__.py
 serial_common_generate_messages_py: serial_common/CMakeFiles/serial_common_generate_messages_py.dir/build.make
 

@@ -24,27 +24,32 @@ struct EnemyPos_
   typedef EnemyPos_<ContainerAllocator> Type;
 
   EnemyPos_()
-    : enemy_dist(0.0)
-    , enemy_yaw(0.0)
-    , enemy_pitch(0.0)  {
+    : enemy_dist(0)
+    , enemy_yaw(0)
+    , enemy_pitch(0)
+    , mode(0)  {
     }
   EnemyPos_(const ContainerAllocator& _alloc)
-    : enemy_dist(0.0)
-    , enemy_yaw(0.0)
-    , enemy_pitch(0.0)  {
+    : enemy_dist(0)
+    , enemy_yaw(0)
+    , enemy_pitch(0)
+    , mode(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef double _enemy_dist_type;
+   typedef int32_t _enemy_dist_type;
   _enemy_dist_type enemy_dist;
 
-   typedef double _enemy_yaw_type;
+   typedef int32_t _enemy_yaw_type;
   _enemy_yaw_type enemy_yaw;
 
-   typedef double _enemy_pitch_type;
+   typedef int32_t _enemy_pitch_type;
   _enemy_pitch_type enemy_pitch;
+
+   typedef int32_t _mode_type;
+  _mode_type mode;
 
 
 
@@ -124,12 +129,12 @@ struct MD5Sum< ::serial_common::EnemyPos_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d2e463cd0aba84496a9caa0872b932d0";
+    return "d278822d8acfbc3aa6895b78b02afb89";
   }
 
   static const char* value(const ::serial_common::EnemyPos_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd2e463cd0aba8449ULL;
-  static const uint64_t static_value2 = 0x6a9caa0872b932d0ULL;
+  static const uint64_t static_value1 = 0xd278822d8acfbc3aULL;
+  static const uint64_t static_value2 = 0xa6895b78b02afb89ULL;
 };
 
 template<class ContainerAllocator>
@@ -148,9 +153,10 @@ struct Definition< ::serial_common::EnemyPos_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 enemy_dist\n\
-float64 enemy_yaw\n\
-float64 enemy_pitch\n\
+    return "int32 enemy_dist\n\
+int32 enemy_yaw\n\
+int32 enemy_pitch\n\
+int32 mode \n\
 ";
   }
 
@@ -172,6 +178,7 @@ namespace serialization
       stream.next(m.enemy_dist);
       stream.next(m.enemy_yaw);
       stream.next(m.enemy_pitch);
+      stream.next(m.mode);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -191,11 +198,13 @@ struct Printer< ::serial_common::EnemyPos_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::serial_common::EnemyPos_<ContainerAllocator>& v)
   {
     s << indent << "enemy_dist: ";
-    Printer<double>::stream(s, indent + "  ", v.enemy_dist);
+    Printer<int32_t>::stream(s, indent + "  ", v.enemy_dist);
     s << indent << "enemy_yaw: ";
-    Printer<double>::stream(s, indent + "  ", v.enemy_yaw);
+    Printer<int32_t>::stream(s, indent + "  ", v.enemy_yaw);
     s << indent << "enemy_pitch: ";
-    Printer<double>::stream(s, indent + "  ", v.enemy_pitch);
+    Printer<int32_t>::stream(s, indent + "  ", v.enemy_pitch);
+    s << indent << "mode: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.mode);
   }
 };
 

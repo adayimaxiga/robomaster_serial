@@ -1,2 +1,2 @@
-serial_common
+opencvtest3:serial_common:usb_cam
 -DCATKIN_DEVEL_PREFIX=/home/xjturm/serial_ws/devel -DCMAKE_INSTALL_PREFIX=/home/xjturm/serial_ws/install -G Unix Makefiles
